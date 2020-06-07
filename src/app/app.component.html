@@ -4,7 +4,7 @@
     type="button"
     (click)="startClicked()"
     class="btn btn-light">
-      {{startButtonText}} <i [ngClass]="isPaused ? 'fa fa-play' : 'fa fa-pause'"></i>
+      {{isPaused? 'Start' : 'Pause'}} <i [ngClass]="isPaused ? 'fa fa-play' : 'fa fa-pause'"></i>
   </button>
   <button 
     (click)="resetClicked()"
@@ -25,34 +25,40 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="active-pomodoro">
+      <tr [ngClass]="session === 0 ? 'active-pomodoro' : '' ">
         <td>Pomodoro #1</td>
-        <td>00:25:00</td>
+        <td *ngIf="session===0 else twentyfive">{{ counter.min | number : '2.0-0' }}:{{ counter.sec | number : '2.0-0' }}</td>
       </tr>
-      <tr>
+      <tr [ngClass]="session === 1 ? 'active-pomodoro' : '' ">
         <td>Break</td>
-        <td>00:05:00</td>
+        <td *ngIf="session===1 else five">{{ counter.min | number : '2.0-0' }}:{{ counter.sec | number : '2.0-0' }}</td>
       </tr>
-      <tr>
+      <tr [ngClass]="session === 2 ? 'active-pomodoro' : '' ">
         <td>Pomodoro #2</td>
-        <td>00:25:00</td>
+        <td *ngIf="session===2 else twentyfive">{{ counter.min | number : '2.0-0' }}:{{ counter.sec | number : '2.0-0' }}</td>
       </tr>
-      <tr>
+      <tr [ngClass]="session === 3 ? 'active-pomodoro' : '' ">
         <td>Break</td>
-        <td>00:05:00</td>
+        <td *ngIf="session===3 else five">{{ counter.min | number : '2.0-0' }}:{{ counter.sec | number : '2.0-0' }}</td>
       </tr>
-      <tr>
+      <tr [ngClass]="session === 4 ? 'active-pomodoro' : '' ">
         <td>Pomodoro #3</td>
-        <td>00:25:00</td>
+        <td *ngIf="session===4 else twentyfive">{{ counter.min | number : '2.0-0' }}:{{ counter.sec | number : '2.0-0' }}</td>
       </tr>
-      <tr>
+      <tr [ngClass]="session === 5 ? 'active-pomodoro' : '' ">
         <td>Break</td>
-        <td>00:05:00</td>
+        <td *ngIf="session===5 else five">{{ counter.min | number : '2.0-0' }}:{{ counter.sec | number : '2.0-0' }}</td>
       </tr>
-      <tr>
+      <tr [ngClass]="session === 6 ? 'active-pomodoro' : '' ">
         <td>Pomodoro #4</td>
-        <td>00:25:00</td>
+        <td *ngIf="session===6 else twentyfive">{{ counter.min | number : '2.0-0' }}:{{ counter.sec | number : '2.0-0' }}</td>
       </tr>
     </tbody>
   </table>
+  <ng-template #twentyfive>
+    <div>25:00</div>
+  </ng-template>
+  <ng-template #five>
+    <div>05:00</div>
+  </ng-template>
 </div>
