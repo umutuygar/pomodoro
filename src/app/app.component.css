@@ -1,0 +1,8 @@
+.active-pomodoro {
+    font-weight: bolder;
+    font-size: x-large;
+    background-color: lightslategray;
+}
+.active-pomodoro:hover {
+    background-color: lightslategray;
+}
