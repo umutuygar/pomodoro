@@ -6,19 +6,19 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  minutes: number = 0;
-  seconds: number = 5;
+  minutes: number = 25;
+  seconds: number = 0;
   intervalId;
   isPaused = true;
   isReset = true;
   
   sessionCounters = [
     { min: this.minutes, sec: this.seconds },
-    { min: 0, sec: 3 },
+    { min: 5, sec: 0 },
     { min: this.minutes, sec: this.seconds },
-    { min: 0, sec: 3 },
+    { min: 5, sec: 0 },
     { min: this.minutes, sec: this.seconds },
-    { min: 0, sec: 3 },
+    { min: 5, sec: 0 },
     { min: this.minutes, sec: this.seconds },
   ];
   session: number = 0;
@@ -74,11 +74,11 @@ export class AppComponent {
     this.session = 0;
     this.sessionCounters = [
       { min: this.minutes, sec: this.seconds },
-      { min: 0, sec: 3 },
+      { min: 5, sec: 0 },
       { min: this.minutes, sec: this.seconds },
-      { min: 0, sec: 3 },
+      { min: 5, sec: 0 },
       { min: this.minutes, sec: this.seconds },
-      { min: 0, sec: 3 },
+      { min: 5, sec: 0 },
       { min: this.minutes, sec: this.seconds },
     ];
     this.counter = this.sessionCounters[this.session];
